@@ -9,8 +9,8 @@ const config = require("./config");
 const publishBase = config.package.dest;
 const jeditor = require("gulp-json-editor");
 
-gulp.task("package:clean", function () {
-	return del([publishBase, config.ts.dest]);
+gulp.task("package:clean", function (cb) {
+	return del([publishBase, config.ts.dest], cb);
 });
 
 gulp.task("package:copy", function () {
