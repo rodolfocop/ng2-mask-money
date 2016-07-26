@@ -1,0 +1,47 @@
+{
+  "name": "@pjmt-components/sample-panel",
+  "version": "1.1.0",
+  "description": "Boilerplate para iniciar seu node module de componente",
+  "scripts": {
+    "start": "gulp serve:sample",
+    "publish": "gulp publish",
+    "package": "gulp package",
+    "build": "gulp compile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@angular/core": "^2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@angular/common": "^2.0.0-rc.3",
+    "@angular/compiler": "^2.0.0-rc.3",
+    "@angular/core": "2.0.0-rc.3",
+    "@angular/platform-browser": "^2.0.0-rc.3",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.3",
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "del": "^2.2.0",
+    "es6-shim": "^0.35.1",
+    "gulp": "^3.9.0",
+    "gulp-json-editor": "^2.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-shell": "^0.5.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.13.6",
+    "gulp-watch": "^4.3.8",
+    "merge-stream": "^1.0.0",
+    "reflect-metadata": "^0.1.3",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.2.2",
+    "rxjs": "^5.0.0-beta.6",
+    "symbol-observable": "^1.0.1",
+    "systemjs": "^0.19.27",
+    "typescript": "^1.8.10",
+    "typings": "^0.6.10",
+    "yargs": "^4.8.0",
+    "zone.js": "^0.6.12"
+  },
+  "dependencies": {}
+}
