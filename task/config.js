@@ -1,4 +1,5 @@
 const config = {
+	appName: 'Sample',
 	ts: {
 		source: "src",
 		get files() {

@@ -30,7 +30,7 @@ gulp.task('dist:html', function () {
 
 	return gulp.src(config.dist.index)
 		.pipe(replace(/<script +src="(.*?)"> *<\/script>/g, '<!-- js: $1 -->'))
-		.pipe(replace(/<link.*?href="(.*?)".*>/g, '<!-- css: $1 -->'))
+		.pipe(replace(/<link.*?href="(.*?)".*>/g, '<!-- css: $1 -->')) 
 		.pipe(replace(/<script>\/\*bundle\*\/<\/script>/g, `
 			<link rel="stylesheet" href="${config.dist.bundle.output}.css">
 			<script src="${config.dist.bundle.output}.js"></script>
