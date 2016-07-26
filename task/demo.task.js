@@ -48,6 +48,6 @@ gulp.task('sample:simple', ['assets:copy'], function () {
 
 gulp.task("sample", function(){
 	sequence(
-		"build", "sample:simple"
+		"sample:simple", "build"
 	);
 });
