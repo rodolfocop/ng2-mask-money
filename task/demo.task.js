@@ -8,7 +8,7 @@ const config = require("./config");
 
 const tsConfig = config.samples.tsConfig;
 
-gulp.task("serve:sample", ["build", "sample:simple"], function(){
+gulp.task("serve:sample", ["build", "sample"], function(){
 	
 	browserSync.init({
         server: {
@@ -21,7 +21,7 @@ gulp.task("serve:sample", ["build", "sample:simple"], function(){
     });
 
 	watch(config.samples.base, function(){
-		return gulp.run(["sample:simple", "build"], function(){
+		return gulp.run(["sample", "build"], function(){
 			browserSync.reload();
 		});
 	});
@@ -35,7 +35,7 @@ gulp.task("serve:sample", ["build", "sample:simple"], function(){
 
 });
 
-gulp.task('sample:simple', ['assets:copy'], function () {
+gulp.task('sample', ['assets:copy'], function () {
     var tsResult = gulp.src(config.samples.source("simple"))
 		.pipe(ts(tsConfig));
 
