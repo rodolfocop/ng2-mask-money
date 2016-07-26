@@ -82,11 +82,11 @@ gulp.task("package", function (cb) {
 
 gulp.task("package:publish", function(cb){
 
-	var command = "npm publish --access=public ";
+	var command = "npm publish ";
 	
 
 	if (argv["env-version"] && argv["env-version"] != "stable") {
-		command  += "--tag=" + argv["env-version"];
+		command  += "--tag " + argv["env-version"];
 	}
 
 	console.log(command);
