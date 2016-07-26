@@ -6,6 +6,7 @@ const concat = require("gulp-concat");
 const Builder = require('systemjs-builder');
 const config = require("./config");
 const sourcemaps = require("gulp-sourcemaps");
+const replace = require("gulp-replace");
 
 
 gulp.task('dist:clean-all', function (cb) {

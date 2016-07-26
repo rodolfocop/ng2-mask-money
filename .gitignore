@@ -3,3 +3,4 @@ build
 server
 package
 typings
+dist
