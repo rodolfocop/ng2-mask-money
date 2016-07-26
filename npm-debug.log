@@ -1,55 +1,27 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Users\\ps-luan\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'dist-tag',
-1 verbose cli   'add',
-1 verbose cli   'sample-panel@1.0.0',
-1 verbose cli   'alpha' ]
+1 verbose cli   'run',
+1 verbose cli   'sample:simple' ]
 2 info using npm@3.8.0
 3 info using node@v5.10.1
-4 verbose dist-tag add alpha to sample-panel@1.0.0
-5 silly mapToRegistry name sample-panel
-6 silly mapToRegistry using default registry
-7 silly mapToRegistry registry https://registry.npmjs.org/
-8 silly mapToRegistry uri https://registry.npmjs.org/sample-panel
-9 verbose request uri https://registry.npmjs.org/-/package/sample-panel/dist-tags
-10 verbose request no auth needed
-11 info attempt registry request try #1 at 15:39:19
-12 verbose request using bearer token for auth
-13 verbose request id f59b841136a6a0aa
-14 http request GET https://registry.npmjs.org/-/package/sample-panel/dist-tags
-15 http 403 https://registry.npmjs.org/-/package/sample-panel/dist-tags
-16 verbose headers { 'content-type': 'application/json',
-16 verbose headers   'cache-control': 'max-age=300',
-16 verbose headers   'content-length': '96',
-16 verbose headers   'accept-ranges': 'bytes',
-16 verbose headers   date: 'Tue, 26 Jul 2016 19:39:23 GMT',
-16 verbose headers   via: '1.1 varnish',
-16 verbose headers   connection: 'close',
-16 verbose headers   'x-served-by': 'cache-gru7125-GRU',
-16 verbose headers   'x-cache': 'MISS',
-16 verbose headers   'x-cache-hits': '0',
-16 verbose headers   'x-timer': 'S1469561963.619626,VS0,VE211',
-16 verbose headers   vary: 'Accept-Encoding' }
-17 verbose stack Error: Registry returned 403 for GET on https://registry.npmjs.org/-/package/sample-panel/dist-tags
-17 verbose stack     at makeError (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
-17 verbose stack     at CachingRegistryClient.<anonymous> (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
-17 verbose stack     at Request._callback (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
-17 verbose stack     at Request.self.callback (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:199:22)
-17 verbose stack     at emitTwo (events.js:100:13)
-17 verbose stack     at Request.emit (events.js:185:7)
-17 verbose stack     at Request.<anonymous> (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:1036:10)
-17 verbose stack     at emitOne (events.js:95:20)
-17 verbose stack     at Request.emit (events.js:182:7)
-17 verbose stack     at IncomingMessage.<anonymous> (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:963:12)
-18 verbose statusCode 403
-19 verbose cwd d:\projetos\ng2-components\sample-panel
-20 error Windows_NT 10.0.10240
-21 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\ps-luan\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "dist-tag" "add" "sample-panel@1.0.0" "alpha"
-22 error node v5.10.1
-23 error npm  v3.8.0
-24 error code E403
-25 error Registry returned 403 for GET on https://registry.npmjs.org/-/package/sample-panel/dist-tags
-26 error If you need help, you may report this error at:
-26 error     <https://github.com/npm/npm/issues>
-27 verbose exit [ 1, true ]
+4 verbose stack Error: missing script: sample:simple
+4 verbose stack     at run (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\lib\run-script.js:147:19)
+4 verbose stack     at C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\lib\run-script.js:57:5
+4 verbose stack     at C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:345:5
+4 verbose stack     at checkBinReferences_ (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:309:45)
+4 verbose stack     at final (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:343:3)
+4 verbose stack     at then (C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:113:5)
+4 verbose stack     at C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:300:12
+4 verbose stack     at C:\Users\ps-luan\AppData\Roaming\npm\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:78:16
+4 verbose stack     at tryToString (fs.js:414:3)
+4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:401:12)
+5 verbose cwd D:\projetos\ng2-components\sample-panel
+6 error Windows_NT 10.0.10240
+7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\ps-luan\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "sample:simple"
+8 error node v5.10.1
+9 error npm  v3.8.0
+10 error missing script: sample:simple
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
