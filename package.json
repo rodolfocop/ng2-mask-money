@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "Boilerplate para iniciar seu node module de componente",
   "scripts": {
-    "start": "gulp serve:sample",
-    "publish": "gulp publish",
+    "start": "gulp serve:sample",    
     "package": "gulp package",
     "build": "gulp compile",
     "test": "echo \"Error: no test specified\" && exit 1"
