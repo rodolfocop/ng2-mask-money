@@ -82,15 +82,18 @@ gulp.task("package", function (cb) {
 
 gulp.task("package:publish", function(cb){
 
-	var tag = "";
+	var command = "npm publish --access=public ";
+	
 
 	if (argv["env-version"] && argv["env-version"] != "stable") {
-		tag = "--tag=" + argv["env-version"];
+		command  += "--tag=" + argv["env-version"];
 	}
+
+	console.log(command);
 
 	return gulp.src(`${publishBase}/package.json`, { read: false })
 		.pipe(shell([
-			`cd ./${config.package.dest} && npm publish --access=public ${tag}`
+			`cd ./${config.package.dest} && ${command}`
 		]));
 
 });
