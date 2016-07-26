@@ -1,6 +1,6 @@
 {
   "name": "@pjmt-components/sample-panel",
-  "version": "1.1.0",
+  "version": "0.1.0",
   "description": "Boilerplate para iniciar seu node module de componente",
   "scripts": {
     "start": "gulp serve:sample",
