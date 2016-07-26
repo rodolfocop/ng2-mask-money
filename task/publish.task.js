@@ -54,18 +54,18 @@ gulp.task("package:copyts", function () {
 });
 
 
-gulp.task("package:package.json", function(){
+gulp.task("package:package.json", function () {
 
 	return gulp.src(publishBase + "/package.json")
-				.pipe(jeditor(function(package){
+		.pipe(jeditor(function (package) {
 
-					if(argv["env-version"] && argv["env-version"] != "stable"){
-						package.version += "-" + argv["env-version"];
-					}
+			if (argv["env-version"] && argv["env-version"] != "stable") {
+				package.version += "-" + argv["env-version"];
+			}
 
-					return package;
-				}))
-				.pipe(gulp.dest(publishBase));
+			return package;
+		}))
+		.pipe(gulp.dest(publishBase));
 
 });
 
@@ -82,9 +82,15 @@ gulp.task("package", function (cb) {
 
 gulp.task("publish", ["package"], function (cb) {
 
+	var tag = "";
+
+	if (argv["env-version"] && argv["env-version"] != "stable") {
+		tag = "--tag=" + argv["env-version"];
+	}
+
 	return gulp.src(`${publishBase}/package.json`, { read: false })
 		.pipe(shell([
-			`cd ./${config.package.dest} && npm publish --access=public`
+			`cd ./${config.package.dest} && npm publish --access=public ${tag}`
 		]));
 
 }); 
