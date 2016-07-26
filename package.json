@@ -6,7 +6,7 @@
     "install": "typings install",
     "start": "gulp serve:sample",    
     "package": "gulp package",
-    "package-publish": "gulp publish",
+    "package-publish": "gulp package:publish",
     "build": "gulp compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

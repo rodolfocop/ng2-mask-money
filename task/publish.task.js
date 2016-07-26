@@ -80,7 +80,7 @@ gulp.task("package", function (cb) {
 	);
 });
 
-gulp.task("publish", ["package"], function (cb) {
+gulp.task("package:publish", function(cb){
 
 	var tag = "";
 
@@ -93,4 +93,11 @@ gulp.task("publish", ["package"], function (cb) {
 			`cd ./${config.package.dest} && npm publish --access=public ${tag}`
 		]));
 
+});
+
+gulp.task("publish", function (cb) {
+	sequence(
+		"package",
+		"package:publish"
+	);
 }); 
