@@ -48,5 +48,7 @@
     "yargs": "^4.8.0",
     "zone.js": "^0.6.12"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@angular/forms": "^0.2.0"
+  }
 }
