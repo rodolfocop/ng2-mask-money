@@ -4,3 +4,4 @@ server
 package
 typings
 dist
+/.idea

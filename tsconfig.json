@@ -5,11 +5,19 @@
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
+        "declaration": false,
+        "removeComments": true,
+        "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,
+        "pretty": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
         "noImplicitAny": false,
-        "declaration": true 
+        "noImplicitReturns": false,
+        "noImplicitUseStrict": false,
+        "noFallthroughCasesInSwitch": true
     }, 
     "exclude": [
         "build",
