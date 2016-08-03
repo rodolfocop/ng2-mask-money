@@ -1,7 +1,8 @@
 {
-  "name": "@pjmt-components/sample-panel",
-  "version": "1.0.0",
-  "description": "Boilerplate para iniciar seu node module de componente",
+  "name": "ng2-money-mask",
+  "version": "0.1.1",
+  "description": "Money Mask Directive for angular2",
+  "repository": "castrolol/ng2-mask-money",
   "scripts": {
     "install": "typings install",
     "start": "gulp serve:sample",
