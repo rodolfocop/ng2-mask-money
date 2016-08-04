@@ -21,4 +21,4 @@ module.exports = {
 		"@angular/testing": { main: "index.js", defaultExtension: "js" },
 		"@angular/upgrade": { main: "index.js", defaultExtension: "js" }
 	}
-}
+};
