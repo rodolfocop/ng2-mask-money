@@ -1,6 +1,6 @@
 export class InputManager {
 
-  constructor(private input:HTMLInputElement, private options:any) {
+  constructor(private input:any, private options:any) {
   }
 
   get rawValue() {
