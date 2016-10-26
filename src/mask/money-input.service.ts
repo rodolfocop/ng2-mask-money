@@ -11,7 +11,7 @@ export class MoneyInputService {
         return;
     });
 
-    elementRef: HTMLInputElement;
+    elementRef: any;
     options = {
         allowNegative: true,
         precision: 2,

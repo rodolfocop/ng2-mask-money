@@ -1,2 +1,2 @@
-export * from './mask-money.directive';
-export * from './mask-money.module';
+export * from './money-mask.directive';
+export * from './money-mask.module';

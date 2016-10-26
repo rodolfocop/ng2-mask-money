@@ -9,6 +9,9 @@ import { MoneyMaskDirective } from './money-mask.directive';
   declarations: [
     MoneyMaskDirective
   ],
+  exports: [
+    MoneyMaskDirective
+  ],
   imports: [
     CommonModule,
     FormsModule
