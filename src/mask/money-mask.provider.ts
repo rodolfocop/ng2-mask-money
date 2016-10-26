@@ -3,9 +3,9 @@ export class MoneyMaskProvider {
   options = {
     allowNegative: false,
     precision: 2,
-    thousands: '.',
-    decimal: ',',
-    prefix: 'R$ ',
+    thousands: ',',
+    decimal: '.',
+    prefix: '$ ',
     suffix: ''
   };
 

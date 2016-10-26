@@ -41,5 +41,24 @@ export class AppModule {}
  * `moneyModel` will get/set the number value **(example: `1234.56`)**; 
 
 
+### Options 
+
+You can set options...
+
+```html
+    <!-- example for pt-BR money -->
+    <input [(ngModel)]="moneyText" [(moneyModel)]="moneyValue" [mask-money-options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" mask-money />
+```  
+
+Available options: 
+
+ * `allowNegative` - If `true` can input negative values.  (default: `false`)
+ * `precision` - Number of decimal places (default: `2`)
+ * `thousands` - Separator of thousands (default: `','`)
+ * `decimal` -  Separator of decimals (default: `'.'`)
+ * `prefix` - Money preffix (is included in ngModel) (default: `'$ '`)
+ * `suffix` - Money suffix (is included in ngModel) (default: `''`)
+  
+
 
  ## Questions? Open a Issue!

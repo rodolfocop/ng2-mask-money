@@ -22,10 +22,10 @@ export class MoneyMaskDirective implements AfterViewInit, OnChanges {
   options = {
     allowNegative: true,
     precision: 2,
-    prefix: 'R$ ',
+    prefix: '$ ',
     suffix: '',
-    thousands: '.',
-    decimal: ',',
+    thousands: ',',
+    decimal: '.',
     allowZero: true,
     affixesStay: true
   };
