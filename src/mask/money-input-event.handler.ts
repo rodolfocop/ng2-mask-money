@@ -9,6 +9,7 @@ export class MoneyInputEventHandler {
     }
 
     setValue(value){
+
         this.inputService.value = value;
     }
 

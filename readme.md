@@ -47,7 +47,7 @@ You can set options...
 
 ```html
     <!-- example for pt-BR money -->
-    <input [(ngModel)]="moneyText" [(moneyModel)]="moneyValue" [mask-money-options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" mask-money />
+    <input [(ngModel)]="moneyText" [(moneyModel)]="moneyValue" [money-mask-options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" mask-money />
 ```  
 
 Available options: 

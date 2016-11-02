@@ -45,7 +45,8 @@ export class MoneyInputService {
     }
 
     set value(val){
-        var rawValue = this.maskProvider.apply(val);
+
+        var rawValue = this.maskProvider.fromNumber(val);
         this.rawValue = rawValue;
     }
 

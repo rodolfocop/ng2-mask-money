@@ -31,12 +31,15 @@ export class MoneyMaskDirective implements AfterViewInit, OnChanges {
   };
 
   constructor( @Optional() private ngModel: NgModel, public el: ElementRef) {
-    debugger;
-  }
+   }
 
   ngOnChanges(changes) {
+    console.log(changes)
     if ("moneyModel" in changes) {
-      setTimeout(() => this.inputEventHandler.setValue(changes.moneyModel), 100);
+
+      const value = (+changes.moneyModel.currentValue || 0).toString();
+
+      setTimeout(() => this.inputEventHandler.setValue(value), 100);
     }
   }
 

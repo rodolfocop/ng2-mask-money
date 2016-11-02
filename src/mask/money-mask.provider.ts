@@ -18,6 +18,23 @@ export class MoneyMaskProvider {
     return (n.toFixed(this.options.precision)).replace(new RegExp('\\.', 'g'), this.options.decimal);
   }
 
+  fromNumber(value){
+      const {allowNegative ,precision, thousands, decimal, prefix, suffix} = this.options;
+
+      value = (value || 0)
+      if(!allowNegative) value = Math.abs(value);
+
+       var text = (+value || 0).toFixed(precision);
+
+      var [integer, dec] = text.split(".");
+
+      var integerPart = integer.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
+      var decimalPart = precision <= 0 ? "" : `${decimal}${dec}`;
+
+      return `${prefix}${integerPart}${decimalPart}${suffix}`;
+
+  }
+
   clear(textValue) {
 
     let value = (textValue || '0');
