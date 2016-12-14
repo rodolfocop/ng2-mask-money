@@ -14,24 +14,24 @@ export class MoneyMaskProvider {
   }
 
   get defaultMask() {
-    var n = parseFloat('0') / Math.pow(10, this.options.precision);
+    let n = parseFloat('0') / Math.pow(10, this.options.precision);
     return (n.toFixed(this.options.precision)).replace(new RegExp('\\.', 'g'), this.options.decimal);
   }
 
-  fromNumber(value){
-      const {allowNegative ,precision, thousands, decimal, prefix, suffix} = this.options;
+  fromNumber(value) {
+    const {allowNegative, precision, thousands, decimal, prefix, suffix} = this.options;
 
-      value = (value || 0)
-      if(!allowNegative) value = Math.abs(value);
+    value = (value || 0);
+    if (!allowNegative) value = Math.abs(value);
 
-       var text = (+value || 0).toFixed(precision);
+    let text = (+value || 0).toFixed(precision);
 
-      var [integer, dec] = text.split(".");
+    let [integer, dec] = text.split('.');
 
-      var integerPart = integer.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
-      var decimalPart = precision <= 0 ? "" : `${decimal}${dec}`;
+    let integerPart = integer.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
+    let decimalPart = precision <= 0 ? '' : `${decimal}${dec}`;
 
-      return `${prefix}${integerPart}${decimalPart}${suffix}`;
+    return `${prefix}${integerPart}${decimalPart}${suffix}`;
 
   }
 
@@ -39,7 +39,7 @@ export class MoneyMaskProvider {
 
     let value = (textValue || '0');
     let isNegative = value.indexOf('-') !== -1;
-    let decimalPart ='';
+    let decimalPart = '';
 
 
     value
@@ -63,9 +63,9 @@ export class MoneyMaskProvider {
 
   applyMask(value) {
 
-    var {allowNegative, precision, thousands, decimal} = this.options;
+    let {allowNegative, precision, thousands, decimal} = this.options;
 
-    var negative = (value.indexOf('-') > -1 && allowNegative) ? '-' : '',
+    let negative = (value.indexOf('-') > -1 && allowNegative) ? '-' : '',
       onlyNumbers = value.replace(/[^0-9]/g, ''),
       integerPart = onlyNumbers.slice(0, onlyNumbers.length - precision),
       newValue,
@@ -99,9 +99,9 @@ export class MoneyMaskProvider {
 
   setSymbol(value) {
 
-    var {prefix, suffix} = this.options;
+    let {prefix, suffix} = this.options;
 
-    var operator = '';
+    let operator = '';
     if (value.indexOf('-') > -1) {
       value = value.replace('-', '');
       operator = '-';
@@ -110,7 +110,7 @@ export class MoneyMaskProvider {
   }
 
   changeSign(value) {
-    var inputValue = value;
+    let inputValue = value;
     if (this.options.allowNegative) {
       if (inputValue !== '' && inputValue.charAt(0) === '-') {
         return inputValue.replace('-', '');
