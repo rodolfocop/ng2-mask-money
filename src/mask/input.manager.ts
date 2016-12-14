@@ -18,7 +18,7 @@ export class InputManager {
     let input = this.input;
     let maxlength = input.maxLength;
 
-    var haventReachedMaxLength = !(this.rawValue.length >= maxlength && maxlength >= 0);
+    let haventReachedMaxLength = !(this.rawValue.length >= maxlength && maxlength >= 0);
     let selection = this.inputSelection;
     let start = selection.start;
     let end = selection.end;
@@ -29,7 +29,7 @@ export class InputManager {
   }
 
   get inputSelection() {
-    var el = this.input;
+    let el = this.input;
     let start = 0;
     let end = 0;
 
@@ -90,7 +90,7 @@ export class InputManager {
       elem.focus();
       elem.setSelectionRange(pos, pos);
     } else if (elem.createTextRange) {
-      var range = elem.createTextRange();
+      let range = elem.createTextRange();
       range.collapse(true);
       range.moveEnd('character', pos);
       range.moveStart('character', pos);
