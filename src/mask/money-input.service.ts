@@ -23,7 +23,7 @@ export class MoneyInputService {
     affixesStay: true
   };
 
-  onchange = (val) => {
+  onchange = (val: any) => {
     return val;
   };
 
@@ -61,7 +61,7 @@ export class MoneyInputService {
     return this.maskProvider.setSymbol(this.maskProvider.defaultMask);
   }
 
-  constructor(input, options, onchange) {
+  constructor(input: any, options: any, onchange: any) {
     this.elementRef = input;
     this.options = Object.assign({}, this.options, options);
     this.onchange = onchange;
@@ -75,13 +75,13 @@ export class MoneyInputService {
     this.updateFieldValue(0);
   }
 
-  onChange(handler) {
+  onChange(handler: any) {
     this.triggerChange = handler || (() => {
         return;
       });
   }
 
-  updateFieldValue(startPos) {
+  updateFieldValue(startPos: any) {
     let value = this.rawValue || '';
     let length = value.length;
     value = this.maskProvider.applyMask(value);
@@ -96,7 +96,7 @@ export class MoneyInputService {
     this.rawValue = this.rawValue.replace('-', '');
   }
 
-  processSpacebar(key) {
+  processSpacebar(key: any) {
     let selection = this.inputSelection;
     let startPos = selection.start;
     let endPos = selection.end;
@@ -174,7 +174,7 @@ export class MoneyInputService {
     }, 1);
   }
 
-  addNumber(key) {
+  addNumber(key: any) {
     let keyPressedChar = String.fromCharCode(key);
     let selection = this.inputSelection;
     let startPos = selection.start;
