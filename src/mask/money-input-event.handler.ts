@@ -3,15 +3,16 @@ import {MoneyInputService} from './money-input.service';
 export class MoneyInputEventHandler {
 
   inputService: MoneyInputService;
-  constructor(private input: HTMLInputElement, options: any, onchange) {
+
+  constructor(private input: HTMLInputElement, options: any, onchange: any) {
     this.inputService = new MoneyInputService(input, options, onchange);
   }
 
-  setValue(value) {
+  setValue(value: any) {
     this.inputService.value = value;
   }
 
-  handleKeypress(e) {
+  handleKeypress(e: any) {
     const {inputService} = this;
     let key = e.which || e.charCode || e.keyCode;
 
@@ -45,40 +46,37 @@ export class MoneyInputEventHandler {
 
   }
 
-  handleKeydown(e) {
-
+  handleKeydown(e: any) {
     const {inputService} = this;
     let key = e.which || e.charCode || e.keyCode;
     if (key === undefined) {
       return false;
     }
-    //espaço ou delete
+    //space or delete
     if (key === 8 || key === 46 || key === 63272) {
       e.preventDefault();
-
       inputService.processSpacebar(key);
-
       return false;
     } else if (key === 9) { // tab
       return true;
-    } else { // outros
+    } else { // others
       return true;
     }
   }
 
-  handleBlur(e) {
+  handleBlur(e: any) {
     this.inputService.reformatField();
   }
 
-  handleClick(e) {
+  handleClick(e: any) {
     this.inputService.resetSelection();
   }
 
-  handleFocus(e) {
+  handleFocus(e: any) {
     this.inputService.saveFocusValue();
   }
 
-  handleCutPastEvent(e) {
+  handleCutPastEvent(e: any) {
     this.inputService.waitAndFormat();
   }
 

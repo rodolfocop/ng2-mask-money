@@ -42,8 +42,8 @@ export class MoneyMaskDirective implements AfterViewInit, OnChanges {
   constructor(@Optional() private ngModel: NgModel, public el: ElementRef) {
   }
 
-  ngOnChanges(changes) {
-    console.log(changes);
+  ngOnChanges(changes: any) {
+    //console.log(changes);
     if ('moneyModel' in changes) {
       const value = (+changes.moneyModel.currentValue || 0).toString();
       setTimeout(() => this.inputEventHandler.setValue(value), 100);
@@ -56,7 +56,6 @@ export class MoneyMaskDirective implements AfterViewInit, OnChanges {
     this.elementRef.style.textAlign = 'right';
 
     const options = Object.assign({}, this.options, this.moneyMaskOptions);
-
     this.inputEventHandler = new MoneyInputEventHandler(this.elementRef, options, v => {
       if (this.ngModel) this.elementRef.dispatchEvent(new Event('input', {'bubbles': true, 'cancelable': false}));
       this.moneyModelChange.emit(this.inputEventHandler.inputService.value);
@@ -65,27 +64,27 @@ export class MoneyMaskDirective implements AfterViewInit, OnChanges {
 
 
   @HostListener('keypress', ['$event'])
-  handleKeypress(e) {
+  handleKeypress(e: any) {
     this.inputEventHandler.handleKeypress(e);
   }
 
   @HostListener('keydown', ['$event'])
-  handleKeydown(e) {
+  handleKeydown(e: any) {
     this.inputEventHandler.handleKeydown(e);
   }
 
   @HostListener('blur', ['$event'])
-  handleBlur(e) {
+  handleBlur(e: any) {
     this.inputEventHandler.handleBlur(e);
   }
 
   @HostListener('focus', ['$event'])
-  handleFocus(e) {
+  handleFocus(e: any) {
     this.inputEventHandler.handleFocus(e);
   }
 
   @HostListener('click', ['$event'])
-  handleClick(e) {
+  handleClick(e: any) {
     this.inputEventHandler.handleClick(e);
   }
 

@@ -76,7 +76,7 @@ export class InputManager {
     };
   }
 
-  updateValueAndCursor(value, oldLen, startPos) {
+  updateValueAndCursor(value:any, oldLen:number, startPos:number) {
     let length = oldLen;
     this.rawValue = value;
     let newLength = value.length;
@@ -84,7 +84,7 @@ export class InputManager {
     this.setCursorAt(startPos);
   }
 
-  setCursorAt(pos) {
+  setCursorAt(pos:number) {
     let elem = this.input;
     if (elem.setSelectionRange) {
       elem.focus();

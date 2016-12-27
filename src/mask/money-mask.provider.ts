@@ -9,7 +9,7 @@ export class MoneyMaskProvider {
     suffix: ''
   };
 
-  constructor(options) {
+  constructor(options: any) {
     this.options = Object.assign({}, this.options, options);
   }
 
@@ -18,7 +18,7 @@ export class MoneyMaskProvider {
     return (n.toFixed(this.options.precision)).replace(new RegExp('\\.', 'g'), this.options.decimal);
   }
 
-  fromNumber(value) {
+  fromNumber(value: any) {
     const {allowNegative, precision, thousands, decimal, prefix, suffix} = this.options;
 
     value = (value || 0);
@@ -35,12 +35,10 @@ export class MoneyMaskProvider {
 
   }
 
-  clear(textValue) {
-
+  clear(textValue: string) {
     let value = (textValue || '0');
     let isNegative = value.indexOf('-') !== -1;
     let decimalPart = '';
-
 
     value
       .split(/\D/)
@@ -61,16 +59,16 @@ export class MoneyMaskProvider {
 
   }
 
-  applyMask(value) {
+  applyMask(value:string) {
 
     let {allowNegative, precision, thousands, decimal} = this.options;
 
     let negative = (value.indexOf('-') > -1 && allowNegative) ? '-' : '',
       onlyNumbers = value.replace(/[^0-9]/g, ''),
       integerPart = onlyNumbers.slice(0, onlyNumbers.length - precision),
-      newValue,
-      decimalPart,
-      leadingZeros;
+      newValue:any,
+      decimalPart:any,
+      leadingZeros:any;
 
     integerPart = integerPart.replace(/^0*/g, '');
 
@@ -89,7 +87,7 @@ export class MoneyMaskProvider {
     return this.setSymbol(newValue);
   }
 
-  apply(value) {
+  apply(value:any) {
 
     if (this.options.precision > 0 && value.indexOf(this.options.decimal) < 0) {
       value += this.options.decimal + new Array(this.options.precision + 1).join('0');
@@ -97,7 +95,7 @@ export class MoneyMaskProvider {
     return this.applyMask(value);
   }
 
-  setSymbol(value) {
+  setSymbol(value:any) {
 
     let {prefix, suffix} = this.options;
 
@@ -109,7 +107,7 @@ export class MoneyMaskProvider {
     return operator + prefix + value + suffix;
   }
 
-  changeSign(value) {
+  changeSign(value:any) {
     let inputValue = value;
     if (this.options.allowNegative) {
       if (inputValue !== '' && inputValue.charAt(0) === '-') {
