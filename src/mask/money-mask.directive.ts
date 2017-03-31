@@ -1,19 +1,9 @@
-import {
-  HostListener,
-  Input,
-  Output,
-  Optional,
-  Directive,
-  OnChanges,
-  EventEmitter,
-  ElementRef,
-  AfterViewInit
-} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, Optional, Output} from '@angular/core';
 import {NgModel} from '@angular/forms';
 import {MoneyInputEventHandler} from './money-input-event.handler';
 
 @Directive({
-  selector: '[maskMoney]'
+  selector: '[appMoneyMask]'
 })
 export class MoneyMaskDirective implements AfterViewInit, OnChanges {
 
@@ -43,7 +33,7 @@ export class MoneyMaskDirective implements AfterViewInit, OnChanges {
   }
 
   ngOnChanges(changes: any) {
-    //console.log(changes);
+    // console.log(changes);
     if ('moneyModel' in changes) {
       const value = (+changes.moneyModel.currentValue || 0).toString();
       setTimeout(() => this.inputEventHandler.setValue(value), 100);
@@ -57,7 +47,9 @@ export class MoneyMaskDirective implements AfterViewInit, OnChanges {
 
     const options = Object.assign({}, this.options, this.moneyMaskOptions);
     this.inputEventHandler = new MoneyInputEventHandler(this.elementRef, options, v => {
-      if (this.ngModel) this.elementRef.dispatchEvent(new Event('input', {'bubbles': true, 'cancelable': false}));
+      if (this.ngModel) {
+        this.elementRef.dispatchEvent(new Event('input', {'bubbles': true, 'cancelable': false}));
+      }
       this.moneyModelChange.emit(this.inputEventHandler.inputService.value);
     });
   }

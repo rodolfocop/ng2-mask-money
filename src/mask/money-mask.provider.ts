@@ -14,7 +14,7 @@ export class MoneyMaskProvider {
   }
 
   get defaultMask() {
-    let n = parseFloat('0') / Math.pow(10, this.options.precision);
+    const n = parseFloat('0') / Math.pow(10, this.options.precision);
     return (n.toFixed(this.options.precision)).replace(new RegExp('\\.', 'g'), this.options.decimal);
   }
 
@@ -22,14 +22,16 @@ export class MoneyMaskProvider {
     const {allowNegative, precision, thousands, decimal, prefix, suffix} = this.options;
 
     value = (value || 0);
-    if (!allowNegative) value = Math.abs(value);
+    if (!allowNegative) {
+      value = Math.abs(value);
+    }
 
-    let text = (+value || 0).toFixed(precision);
+    const text = (+value || 0).toFixed(precision);
 
-    let [integer, dec] = text.split('.');
+    const [integer, dec] = text.split('.');
 
-    let integerPart = integer.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
-    let decimalPart = precision <= 0 ? '' : `${decimal}${dec}`;
+    const integerPart = integer.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
+    const decimalPart = precision <= 0 ? '' : `${decimal}${dec}`;
 
     return `${prefix}${integerPart}${decimalPart}${suffix}`;
 
@@ -37,7 +39,7 @@ export class MoneyMaskProvider {
 
   clear(textValue: string) {
     let value = (textValue || '0');
-    let isNegative = value.indexOf('-') !== -1;
+    const isNegative = value.indexOf('-') !== -1;
     let decimalPart = '';
 
     value
@@ -59,16 +61,17 @@ export class MoneyMaskProvider {
 
   }
 
-  applyMask(value:string) {
+  applyMask(value: string) {
 
-    let {allowNegative, precision, thousands, decimal} = this.options;
+    const {allowNegative, precision, thousands, decimal} = this.options;
 
-    let negative = (value.indexOf('-') > -1 && allowNegative) ? '-' : '',
-      onlyNumbers = value.replace(/[^0-9]/g, ''),
-      integerPart = onlyNumbers.slice(0, onlyNumbers.length - precision),
-      newValue:any,
-      decimalPart:any,
-      leadingZeros:any;
+    const negative = (value.indexOf('-') > -1 && allowNegative) ? '-' : '',
+      onlyNumbers = value.replace(/[^0-9]/g, '');
+
+    let integerPart = onlyNumbers.slice(0, onlyNumbers.length - precision),
+      newValue: any,
+      decimalPart: any,
+      leadingZeros: any;
 
     integerPart = integerPart.replace(/^0*/g, '');
 
@@ -87,7 +90,7 @@ export class MoneyMaskProvider {
     return this.setSymbol(newValue);
   }
 
-  apply(value:any) {
+  apply(value: any) {
 
     if (this.options.precision > 0 && value.indexOf(this.options.decimal) < 0) {
       value += this.options.decimal + new Array(this.options.precision + 1).join('0');
@@ -95,9 +98,9 @@ export class MoneyMaskProvider {
     return this.applyMask(value);
   }
 
-  setSymbol(value:any) {
+  setSymbol(value: any) {
 
-    let {prefix, suffix} = this.options;
+    const {prefix, suffix} = this.options;
 
     let operator = '';
     if (value.indexOf('-') > -1) {
@@ -107,8 +110,8 @@ export class MoneyMaskProvider {
     return operator + prefix + value + suffix;
   }
 
-  changeSign(value:any) {
-    let inputValue = value;
+  changeSign(value: any) {
+    const inputValue = value;
     if (this.options.allowNegative) {
       if (inputValue !== '' && inputValue.charAt(0) === '-') {
         return inputValue.replace('-', '');
@@ -119,6 +122,4 @@ export class MoneyMaskProvider {
       return inputValue;
     }
   }
-
-
 }
