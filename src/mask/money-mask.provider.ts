@@ -38,20 +38,9 @@ export class MoneyMaskProvider {
   clear(textValue: string) {
     let value = (textValue || '0');
     let isNegative = value.indexOf('-') !== -1;
-    let decimalPart = '';
+    
+    value = Number(value.replace(/[^0-9\.]+/g,""));
 
-    value
-      .split(/\D/)
-      .reverse()
-      .forEach(function (element) {
-        if (element) {
-          decimalPart = element;
-          return false;
-        }
-      });
-
-    value = value.replace(/\D/g, '');
-    value = value.replace(new RegExp(decimalPart + '$'), '.' + decimalPart);
     if (isNegative) {
       value = '-' + value;
     }
