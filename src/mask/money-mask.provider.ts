@@ -41,7 +41,7 @@ export class MoneyMaskProvider {
     let value = (textValue || '0');
     let isNegative = value.indexOf('-') !== -1;
     
-    value = Number(value.replace(/[^0-9\.]+/g,""));
+    value = Number(value.replace(/[^0-9\.]+/g,"")).toString();
 
     if (isNegative) {
       value = '-' + value;
