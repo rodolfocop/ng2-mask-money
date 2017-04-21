@@ -4,7 +4,7 @@ import {InputManager} from './input.manager';
 export class MoneyInputService {
 
   public elementRef: any;
-  lastValidValue: string = '';
+  lastValidValue = '';
   maskProvider: MoneyMaskProvider;
   inputManager: InputManager;
 
@@ -25,7 +25,7 @@ export class MoneyInputService {
 
   onchange = (val: any) => {
     return val;
-  };
+  }
 
   get rawValue() {
     return this.elementRef && this.elementRef.value;
@@ -83,7 +83,7 @@ export class MoneyInputService {
 
   updateFieldValue(startPos: any) {
     let value = this.rawValue || '';
-    let length = value.length;
+    const length = value.length;
     value = this.maskProvider.applyMask(value);
     this.inputManager.updateValueAndCursor(value, length, startPos);
   }
@@ -97,16 +97,16 @@ export class MoneyInputService {
   }
 
   processSpacebar(key: any) {
-    let selection = this.inputSelection;
+    const selection = this.inputSelection;
     let startPos = selection.start;
     let endPos = selection.end;
-    let value = this.rawValue;
+    const value = this.rawValue;
 
     // sem seleção
     if (startPos === endPos) {
       // espaço
       if (key === 8) {
-        let lastNumber = value.split('').reverse().join('').search(/\d/);
+        const lastNumber = value.split('').reverse().join('').search(/\d/);
         startPos = value.length - lastNumber - 1;
         endPos = startPos + 1;
       } else {
@@ -119,8 +119,8 @@ export class MoneyInputService {
   }
 
   reformatField() {
-    let value = this.rawValue;
-    let empty = this.emptyValue;
+    const value = this.rawValue;
+    const empty = this.emptyValue;
 
     if (value === '' || value === empty) {
       if (!this.options.allowZero) {
@@ -142,13 +142,13 @@ export class MoneyInputService {
   }
 
   resetSelection() {
-    let {elementRef} = this;
+    const {elementRef} = this;
 
     if (elementRef.setSelectionRange) {
       length = this.rawValue.length;
       elementRef.setSelectionRange(length, length);
     } else {
-      let value = this.rawValue;
+      const value = this.rawValue;
       setTimeout(() => {
         this.rawValue = value;
       }, 1);
@@ -159,10 +159,10 @@ export class MoneyInputService {
     this.lastValidValue = this.rawValue;
 
     this.rawValue = this.maskProvider.apply(this.rawValue);
-    let input = this.elementRef;
+    const input = this.elementRef;
 
     if (input.createTextRange) {
-      let textRange = input.createTextRange();
+      const textRange = input.createTextRange();
       textRange.collapse(false); // set the cursor at the end of the input
       textRange.select();
     }
@@ -175,11 +175,11 @@ export class MoneyInputService {
   }
 
   addNumber(key: any) {
-    let keyPressedChar = String.fromCharCode(key);
-    let selection = this.inputSelection;
-    let startPos = selection.start;
-    let endPos = selection.end;
-    let value = this.rawValue;
+    const keyPressedChar = String.fromCharCode(key);
+    const selection = this.inputSelection;
+    const startPos = selection.start;
+    const endPos = selection.end;
+    const value = this.rawValue;
     this.rawValue = value.substring(0, startPos) + keyPressedChar + value.substring(endPos, value.length);
     this.updateFieldValue(startPos + 1);
   }

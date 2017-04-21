@@ -1,6 +1,9 @@
 # ng2-money-mask Directive
 
-Directive for money input mask in angular2 (compatible with `^2.0.0`)
+A very simple currency mask directive for Angular. You should use the version 2.x.x for Angular 2.x.x applications and the version 4.x.x for Angular 4.x.x applications.
+
+Note: This component is ready to AoC (Ahead-of-Time) compilation.
+
 
 ## Getting Started
 

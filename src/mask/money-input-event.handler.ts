@@ -14,7 +14,7 @@ export class MoneyInputEventHandler {
 
   handleKeypress(e: any) {
     const {inputService} = this;
-    let key = e.which || e.charCode || e.keyCode;
+    const key = e.which || e.charCode || e.keyCode;
 
     if (key === undefined) {
       return false;
@@ -48,11 +48,11 @@ export class MoneyInputEventHandler {
 
   handleKeydown(e: any) {
     const {inputService} = this;
-    let key = e.which || e.charCode || e.keyCode;
+    const key = e.which || e.charCode || e.keyCode;
     if (key === undefined) {
       return false;
     }
-    //space or delete
+    // space or delete
     if (key === 8 || key === 46 || key === 63272) {
       e.preventDefault();
       inputService.processSpacebar(key);
