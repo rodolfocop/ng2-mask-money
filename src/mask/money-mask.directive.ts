@@ -7,7 +7,7 @@ import {MoneyInputEventHandler} from './money-input-event.handler';
 })
 export class MoneyMaskDirective implements AfterViewInit, OnChanges {
 
-  @Output()
+  @Output('moneyModelChange')
   moneyModelChange: EventEmitter<number> = new EventEmitter<number>(true);
 
   @Input('moneyModel')
