@@ -1,8 +1,9 @@
 # ng2-money-mask Directive
 
-A very simple currency mask directive for Angular. You should use the version 2.x.x for Angular 2.x.x applications and the version 4.x.x for Angular 4.x.x applications.
+A very simple currency mask directive for Angular. 
+You should use the version 4.x.x for Angular 4.x.x applications and the version 5.x.x for Angular 5.x.x applications.
 
-Note: This component is ready to AoC (Ahead-of-Time) compilation.
+Note: This component is NOT ready to AoC (Ahead-of-Time) compilation.
 
 
 ## Getting Started
