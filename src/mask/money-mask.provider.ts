@@ -54,6 +54,9 @@ export class MoneyMaskProvider {
 
     const {allowNegative, precision, thousands, decimal} = this.options;
 
+    const decimalValue = value.slice(value.indexOf(',') + 1);
+    value = decimalValue.length < precision ? this.normalizeSufix(value, '0', precision - decimalValue.length) : value;
+
     const negative = (value.indexOf('-') > -1 && allowNegative) ? '-' : '',
       onlyNumbers = value.replace(/[^0-9]/g, '');
 
@@ -110,5 +113,13 @@ export class MoneyMaskProvider {
     } else {
       return inputValue;
     }
+  }
+
+  private normalizeSufix(value: string, sufix: string, size: number): string {
+    if (size > 0) {
+      value += sufix;
+      return this.normalizeSufix(value, sufix, --size);
+    }
+    return value;
   }
 }
