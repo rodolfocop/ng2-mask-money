@@ -1,6 +1,6 @@
 {
   "name": "ng2-money-mask",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "description": "Component Mask input text in the form of money (currency)",
   "repository": "https://github.com/castrolol/ng2-mask-money",
