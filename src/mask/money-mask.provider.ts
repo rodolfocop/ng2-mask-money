@@ -39,9 +39,8 @@ export class MoneyMaskProvider {
 
   clear(textValue: string) {
     let value = (textValue || '0');
-    let isNegative = value.indexOf('-') !== -1;
-    
-    value = Number(value.replace(/[^0-9\.]+/g,"")).toString();
+    const isNegative = value.indexOf('-') !== -1;
+    value = Number(value.replace(/[^0-9\.]+/g, '')).toString();
 
     if (isNegative) {
       value = '-' + value;
