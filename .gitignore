@@ -24,3 +24,4 @@
 /src/mask/**/*.js.map
 /index.js
 /index.js.map
+/package-lock.json
