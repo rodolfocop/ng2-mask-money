@@ -1,4 +1,6 @@
-# ng2-money-mask Directive
+# DEPRECATED [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+# ng2-money-mask Directive 
 
 A very simple currency mask directive for Angular. 
 You should use the version 7.x.x for Angular 7.x.x.
